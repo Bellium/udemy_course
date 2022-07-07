@@ -1,4 +1,13 @@
-const numberOfFilms = prompt('How mach films are u watched?', '');
+let numberOfFilms;
+
+function start() {
+    numberOfFilms = +prompt('How many films are u watched?', '')
+    while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
+        numberOfFilms = +prompt('How many films are u watched?', '')
+    }
+}
+start();
+
 const personalMovieDB = {
     count: numberOfFilms,
     movies: {},
@@ -7,35 +16,54 @@ const personalMovieDB = {
     privat: false
 };
 
-// for (let i = 0; i < 2; i++) {
-//     const a = prompt('One of the last viewed films?', ''),
-//           b = prompt('How rate u give for this film?', '');
-//     if ((a && b !== '') && (a && b !== null) && (a.length && b.length < 50)) {
-//         personalMovieDB.movies[a] = b;
-//     } else i--;
+
+function rememberMyFilms() {
+    for (let i = 0; i < 2; i++) {
+        const a = prompt('One of the last viewed films?', ''),
+              b = prompt('How rate u give for this film?', '');
+        if ((a && b !== '') && (a && b !== null) && (a.length && b.length < 50)) {
+            personalMovieDB.movies[a] = b;
+        } else i--;
+    }
+}
+rememberMyFilms();
+
+function detectPersonalLevel() {
+    if (personalMovieDB.count < 10) {
+        console.log('Viewed a few films');
+    } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+        console.log('You are casual viewer');
+    } else if (personalMovieDB.count >= 30) {
+        console.log('You are a cinephile!');
+    }
+}
+detectPersonalLevel();
+
+// function showMyDB() {
+//     if (personalMovieDB.privat === false) {
+//         console.log(personalMovieDB);
+//     }
 // }
-// console.log(personalMovieDB);
+// showMyDB();
+///////////////////////////////////////////////////////
+function showMyDB(hidden) {
+    if (!hidden) {
+        console.log(personalMovieDB);
+    }
+}
+showMyDB(personalMovieDB.privat);
 
-// if (personalMovieDB.count < 10) {
-//     console.log('Viewed a few films');
-// } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
-//     console.log('You are casual viewer');
-// } else if (personalMovieDB.count >= 30) {
-//     console.log('You are a cinephile!');
-// }
+function writeYourGenres() {
+    let answer;
+    for (let i = 0; i < 3; i++) {
+        answer = prompt(`Your favorite genre number ${i + 1}?`);
+        personalMovieDB.genres.push(answer);
 
-
-
-
-
-
-
-
-
-
-
-
-
+        // personalMovieDB.genres[i] = answer;
+        // personalMovieDB.genres[i] = prompt(`Your favorite genre number ${i + 1}?`);
+    }
+}
+writeYourGenres();
 
 // function getMathResult(num, base) {
 //     let result = '';
