@@ -297,8 +297,49 @@
 //     } else console.log(`Property ${key} is ${options[key]}`);
 // }
 
+const personalPlanPeter = {
+    name: "Peter",
+    age: "29",
+    skills: {
+        languages: ['ru', 'eng'],
+        programmingLangs: {
+            js: '20%',
+            php: '10%',
+            C: '0',
+            Docker: '0'
+        },
+        exp: '1 month'
+    },
+    showAgeAndLangs: function (plan) {
+        const {languages} = personalPlanPeter.skills;
+        const {age} = personalPlanPeter;
+        if (languages.length === 0) {
+            return 0;
+        }
+        let result = languages.join(' ').toUpperCase();
+        return `Мне ${age} и я владею языками: ${result}`;
+    }
+};
+console.log(personalPlanPeter.showAgeAndLangs(personalPlanPeter));
 
-let arrayTest = [1, 2, 3, 99];
-arrayTest.forEach((i, index) => console.log(`Element ${index} is ${i}`));
-arrayTest.forEach((i, index) => console.log(i * index));
-console.log(arrayTest);
+function showExperience(plan) {
+    const {exp} = plan.skills;
+    return `${exp}`;
+}
+showExperience(personalPlanPeter);
+
+function showProgrammingLangs(plan) {
+    let result = '';
+    const {programmingLangs} = plan.skills;
+    if (Object.keys(programmingLangs).length === 0) {
+        return result;
+    }
+    for (let key in programmingLangs) {
+        result += `Язык ${key} изучен на ${programmingLangs[key]}\n`;
+    }
+    return result;
+}
+
+console.log(showProgrammingLangs(personalPlanPeter));
+
+
