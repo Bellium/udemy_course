@@ -68,34 +68,5 @@
 // console.log()
 // console.log(personalMovieDB.showMyDB(personalMovieDB.privat));
 
-// // OOP
-// const stranger = {
-//     health: 100,
-//     armor: 80,
-//     sayHello: function() {
-//         console.log('hello')
-//     }
-// }
-//
-// const ray = {
-//     armor: 500
-// }
-//
-// //deprecated
-// // ray.__proto__ = stranger;
-// // console.log(ray.health);
-// // console.log(ray.sayHello());
-//
-// //new
-// Object.setPrototypeOf(ray, stranger);
-// console.log(ray.sayHello());
-//
-// //correct
-// //create new object and set the prototype
-// const leo = Object.create(stranger);
-// console.log(leo.sayHello());
-
-
-
 
 
