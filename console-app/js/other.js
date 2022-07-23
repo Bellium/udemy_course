@@ -157,3 +157,9 @@ function smartFunctionRestProperties({size: {weight = '50px', height = '50px'}, 
     console.log(weight, height, rest);
 }
 smartFunctionRestProperties(propertiesForSmartFunction);
+
+
+
+
+
+

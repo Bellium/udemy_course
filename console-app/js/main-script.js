@@ -68,5 +68,3 @@
 // console.log()
 // console.log(personalMovieDB.showMyDB(personalMovieDB.privat));
 
-
-
